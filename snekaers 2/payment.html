@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — SneakerHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="index.html" class="nav-logo">Sneaker<span>Hub</span></a>
+  <div class="nav-links">
+    <a href="cart.html" style="color:var(--gray);font-size:14px;">← Back to Cart</a>
+  </div>
+</nav>
+
+<div style="padding:40px 50px 0;max-width:1300px;margin:0 auto;">
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:2px;">Secure <span style="color:var(--accent)">Checkout</span></h2>
+  <p style="color:var(--gray);font-size:14px;margin-top:4px;display:flex;align-items:center;gap:6px;">🔒 Your data is encrypted and secure</p>
+</div>
+
+<div class="payment-layout">
+
+  <!-- FORM SECTION -->
+  <div class="payment-form-section">
+
+    <!-- STEP 1: SHIPPING -->
+    <div class="payment-block">
+      <div class="payment-block-header">
+        <div class="step-circle">1</div>
+        <div class="payment-block-title">Shipping Information</div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" id="firstName" placeholder="Rahul">
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" id="lastName" placeholder="Sharma">
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="email" placeholder="rahul@example.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="phone" placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group full">
+          <label>Street Address *</label>
+          <input type="text" id="address" placeholder="123, MG Road, Sector 17">
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" id="city" placeholder="Chandigarh">
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <select id="state">
+            <option value="">Select State</option>
+            <option>Punjab</option>
+            <option>Haryana</option>
+            <option>Delhi</option>
+            <option>Maharashtra</option>
+            <option>Karnataka</option>
+            <option>Tamil Nadu</option>
+            <option>Gujarat</option>
+            <option>Rajasthan</option>
+            <option>Uttar Pradesh</option>
+            <option>West Bengal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>PIN Code</label>
+          <input type="text" id="pin" placeholder="160017" maxlength="6">
+        </div>
+        <div class="form-group">
+          <label>Country</label>
+          <input type="text" value="India" readonly style="opacity:0.6;">
+        </div>
+      </div>
+
+      <!-- DELIVERY OPTIONS -->
+      <div style="margin-top:24px;">
+        <div style="font-size:12px;color:var(--gray);letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-bottom:14px;">Delivery Method</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <label class="delivery-opt" style="flex:1;min-width:180px;background:rgba(255,60,46,0.1);border:1px solid var(--accent);border-radius:10px;padding:14px;cursor:pointer;display:flex;align-items:center;gap:12px;">
+            <input type="radio" name="delivery" checked style="accent-color:var(--accent)">
+            <div>
+              <div style="font-size:14px;font-weight:600;">Standard Delivery</div>
+              <div style="font-size:12px;color:var(--gray);">5–7 business days · FREE above ₹5K</div>
+            </div>
+            <span style="margin-left:auto;font-size:13px;font-weight:700;color:var(--success)">FREE</span>
+          </label>
+          <label class="delivery-opt" style="flex:1;min-width:180px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;display:flex;align-items:center;gap:12px;">
+            <input type="radio" name="delivery" style="accent-color:var(--accent)">
+            <div>
+              <div style="font-size:14px;font-weight:600;">Express Delivery</div>
+              <div style="font-size:12px;color:var(--gray);">1–2 business days</div>
+            </div>
+            <span style="margin-left:auto;font-size:13px;font-weight:700;color:var(--white)">₹299</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: PAYMENT -->
+    <div class="payment-block">
+      <div class="payment-block-header">
+        <div class="step-circle">2</div>
+        <div class="payment-block-title">Payment Method</div>
+      </div>
+
+      <!-- PAYMENT TABS -->
+      <div class="pay-method-tabs">
+        <button class="pay-tab active" data-method="card">💳 Card</button>
+        <button class="pay-tab" data-method="upi">📱 UPI</button>
+        <button class="pay-tab" data-method="netbanking">🏦 Net Banking</button>
+        <button class="pay-tab" data-method="cod">💵 COD</button>
+      </div>
+
+      <!-- CARD PANEL -->
+      <div class="pay-panel active" id="panel-card">
+        <div class="card-icons">
+          <span class="card-icon active">VISA</span>
+          <span class="card-icon">MC</span>
+          <span class="card-icon">RUPAY</span>
+          <span class="card-icon">AMEX</span>
+        </div>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Card Number</label>
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)">
+          </div>
+          <div class="form-group full">
+            <label>Cardholder Name</label>
+            <input type="text" id="cardName" placeholder="RAHUL SHARMA">
+          </div>
+          <div class="form-group">
+            <label>Expiry Date</label>
+            <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)">
+          </div>
+          <div class="form-group">
+            <label>CVV</label>
+            <input type="password" id="cardCVV" placeholder="•••" maxlength="3">
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;color:var(--gray);">
+          <input type="checkbox" id="saveCard" style="accent-color:var(--accent)">
+          <label for="saveCard">Save this card for future purchases</label>
+        </div>
+      </div>
+
+      <!-- UPI PANEL -->
+      <div class="pay-panel" id="panel-upi">
+        <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+          <button style="background:var(--bg3);border:1px solid var(--border);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;cursor:pointer;">📱 Google Pay</button>
+          <button style="background:var(--bg3);border:1px solid var(--border);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;cursor:pointer;">💜 PhonePe</button>
+          <button style="background:var(--bg3);border:1px solid var(--border);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;cursor:pointer;">🏧 Paytm</button>
+          <button style="background:var(--bg3);border:1px solid var(--border);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;cursor:pointer;">🔵 BHIM</button>
+        </div>
+        <div class="form-group">
+          <label>Or Enter UPI ID</label>
+          <input type="text" placeholder="yourname@upi">
+        </div>
+      </div>
+
+      <!-- NET BANKING PANEL -->
+      <div class="pay-panel" id="panel-netbanking">
+        <div class="form-group">
+          <label>Select Your Bank</label>
+          <select>
+            <option value="">Choose Bank</option>
+            <option>State Bank of India</option>
+            <option>HDFC Bank</option>
+            <option>ICICI Bank</option>
+            <option>Axis Bank</option>
+            <option>Kotak Mahindra Bank</option>
+            <option>Punjab National Bank</option>
+            <option>Bank of Baroda</option>
+            <option>Canara Bank</option>
+          </select>
+        </div>
+        <p style="font-size:13px;color:var(--gray);margin-top:12px;">You'll be redirected to your bank's secure portal to complete payment.</p>
+      </div>
+
+      <!-- COD PANEL -->
+      <div class="pay-panel" id="panel-cod">
+        <div style="background:rgba(245,197,24,0.1);border:1px solid rgba(245,197,24,0.3);border-radius:10px;padding:20px;display:flex;gap:14px;align-items:flex-start;">
+          <span style="font-size:24px;">💵</span>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:var(--gold);margin-bottom:6px;">Cash on Delivery</div>
+            <p style="font-size:13px;color:var(--gray);line-height:1.6;">Pay with cash when your order arrives. Additional ₹49 COD handling fee applies. Available for orders up to ₹10,000.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLACE ORDER BUTTON -->
+    <button class="checkout-btn" onclick="placeOrder()" style="width:100%;font-size:17px;padding:18px;">
+      🔒 Place Order Securely
+    </button>
+
+    <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:12px;">
+      By placing your order, you agree to our <a href="#" style="color:var(--accent);">Terms of Service</a> and <a href="#" style="color:var(--accent);">Privacy Policy</a>.
+    </p>
+  </div>
+
+  <!-- ORDER SUMMARY -->
+  <div>
+    <div class="order-summary">
+      <div class="os-title">Order Review</div>
+      <div id="orderReview"></div>
+      <div class="os-row" style="margin-top:16px;">
+        <span>Subtotal</span>
+        <span class="os-val" id="pSubtotal">₹0</span>
+      </div>
+      <div class="os-row">
+        <span>Shipping</span>
+        <span class="os-val" id="pShipping">—</span>
+      </div>
+      <div class="os-row total">
+        <span>Total</span>
+        <span class="os-val" id="pTotal">₹0</span>
+      </div>
+
+      <div style="margin-top:20px;padding:14px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:8px;font-size:13px;color:var(--success);text-align:center;">
+        ✅ 100% Authentic Guaranteed
+      </div>
+
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+          <span>🔒</span> SSL Encrypted Payment
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+          <span>↩️</span> 30-Day Easy Returns
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+          <span>🚚</span> Tracked Delivery
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

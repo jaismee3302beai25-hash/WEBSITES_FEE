@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SneakerHub — Step Into Style</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="index.html" class="nav-logo">Sneaker<span>Hub</span></a>
+
+  <div class="search-bar-wrapper">
+    <input type="text" id="searchInput" placeholder="Search sneakers, brands…" autocomplete="off">
+    <span class="search-icon">🔍</span>
+    <div class="search-dropdown" id="searchDropdown"></div>
+  </div>
+
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html" class="nav-cart">
+      🛒 Cart
+      <span class="cart-count" style="display:none">0</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">🔥 New Arrivals 2025</div>
+    <h1>STEP INTO<br><span>STYLE</span></h1>
+    <p>Discover premium sneakers from Nike, Adidas, Puma & more. Fast delivery. Authentic kicks. Unbeatable prices.</p>
+    <div class="hero-actions">
+      <a href="products.html" class="btn-primary">Shop Now →</a>
+      <a href="products.html" class="btn-outline">View Lookbook</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">200<span>+</span></div>
+        <div class="hero-stat-label">Styles</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">50<span>K</span></div>
+        <div class="hero-stat-label">Happy Customers</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10<span>+</span></div>
+        <div class="hero-stat-label">Top Brands</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-badge">
+      <div class="hb-icon">🚚</div>
+      <div class="hb-label">Free Shipping</div>
+      <div class="hb-val">₹5K+</div>
+    </div>
+    <div class="hero-badge">
+      <div class="hb-icon">✅</div>
+      <div class="hb-label">100% Authentic</div>
+      <div class="hb-val">Verified</div>
+    </div>
+    <div class="hero-badge">
+      <div class="hb-icon">↩️</div>
+      <div class="hb-label">Easy Returns</div>
+      <div class="hb-val">30 Days</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>NIKE</span><span>ADIDAS</span><span>PUMA</span><span>CONVERSE</span><span>VANS</span>
+    <span>REEBOK</span><span>NEW BALANCE</span><span>JORDAN</span><span>ASICS</span><span>UNDER ARMOUR</span>
+    <span>NIKE</span><span>ADIDAS</span><span>PUMA</span><span>CONVERSE</span><span>VANS</span>
+    <span>REEBOK</span><span>NEW BALANCE</span><span>JORDAN</span><span>ASICS</span><span>UNDER ARMOUR</span>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div class="section-header">
+  <h2>🔥 Featured <span>Sneakers</span></h2>
+  <a href="products.html">View all →</a>
+</div>
+
+<div class="product-grid" id="featuredGrid"></div>
+
+<!-- CATEGORIES -->
+<div class="section-header">
+  <h2>Shop by <span>Category</span></h2>
+</div>
+
+<div class="cat-strip">
+  <a href="products.html" class="cat-card">
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800" alt="Men">
+    <div class="cat-card-label"><span>Explore</span>Men's Kicks</div>
+  </a>
+  <a href="products.html" class="cat-card">
+    <img src="https://images.unsplash.com/photo-1695551853941-cc7ceef49be1?w=800" alt="Women">
+    <div class="cat-card-label"><span>Discover</span>Women's Styles</div>
+  </a>
+  <a href="products.html" class="cat-card">
+    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800" alt="Sports">
+    <div class="cat-card-label"><span>Performance</span>Sports Edition</div>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Sneaker<span>Hub</span></div>
+      <p class="footer-desc">Your one-stop destination for premium, authentic sneakers. Street style meets performance.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="products.html">All Products</a>
+      <a href="products.html">Men's</a>
+      <a href="products.html">Women's</a>
+      <a href="products.html">Sports</a>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <a href="#">Track Order</a>
+      <a href="#">Returns</a>
+      <a href="#">Sizing Guide</a>
+      <a href="#">FAQs</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SneakerHub. All rights reserved.</span>
+    <span>Made with ❤️ for sneaker lovers</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Render 4 featured products
+  const fg = document.getElementById("featuredGrid");
+  if (fg) {
+    const featured = products.slice(0, 4);
+    fg.innerHTML = featured.map((p, i) => renderCard(p, i * 80)).join("");
+  }
+</script>
+</body>
+</html>
